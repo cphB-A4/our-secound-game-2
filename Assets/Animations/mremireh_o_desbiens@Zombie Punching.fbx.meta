@@ -1,52 +1,12 @@
 fileFormatVersion: 2
-guid: ddaec268a5d6b4c3bb63d637d8aacf83
+guid: b0ce5ae85158a49828ca13678487dd54
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: emireh_body_material
-    second: {fileID: 2100000, guid: abfae857b0df6473b960cffd27c7fe26, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: emireh_shoe_material
-    second: {fileID: 2100000, guid: c18fade626e674af9bebbade2b69a1d1, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: mremireh_body__diffuse
-    second: {fileID: 2800000, guid: 21f2812ceace2456bb31df9245134001, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: mremireh_body_normal
-    second: {fileID: 2800000, guid: 41fd10eac2d564cbaaf77fcb9c08d8f2, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: mremireh_body_specular
-    second: {fileID: 2800000, guid: 0d6f646868af141bdaf5a6c8dc58f836, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: mremireh_shoe_diffuse
-    second: {fileID: 2800000, guid: c149c3d77f0144d48985e53978a13912, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: mremireh_shoe_normal
-    second: {fileID: 2800000, guid: f3251d560fbc64a16a37a7fd05d555a4, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: mremireh_shoe_specular
-    second: {fileID: 2800000, guid: efe6f4b1b80144ed89f02edaa4c2f3e1, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -115,9 +75,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - b0ce5ae85158a49828ca13678487dd54
-  - b71f113bb6389405cb41e23505e49671
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -803,11 +761,11 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: ddaec268a5d6b4c3bb63d637d8aacf83, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 
