@@ -35,9 +35,7 @@ public GameObject coin;
              SetRandomTime();
              currentTime = 0;
          }
-         if(coin < 50){
-             
-         }
+
      
     
     }
