@@ -33,22 +33,22 @@ public class PlayerControllerScript : MonoBehaviour
         }
 
         if(distanceForCoin < 1.0f){
-            
+            //points til player
             Points = Points+1;
             Debug.Log("Total points: " + Points);
         }
 
         if(distanceForPot < 1.0f){
-            
+            //health til player
+            Debug.Log("Du fik: + " + Health + " HP");
             Health += 10;
-            Debug.Log("You got a pot " + Health);
-
             if(Health>100){
                 Health = 100;
             }
+            
         }
 
-
+//Når spiller rammer 0 health = game over
         if(Health==0){
             Debug.Log("game over");
             gameOver = true;
