@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomSpawnCoin : MonoBehaviour
+public class RandomSpawnPot : MonoBehaviour
 {
     // Start is called before the first frame update
 
-public GameObject coin;
+public GameObject Pot;
     // Update is called once per frame
 
-    private float minTime = 2;
-    private float maxTime = 5;
+    private float minTime = 10;
+    private float maxTime = 50;
     private float currentTime;
     private float spawnTime;
 
@@ -29,9 +29,9 @@ public GameObject coin;
   
         //Tæller op
          currentTime += Time.deltaTime;
-         //Tjekker om det skal spawnes en coin
+         //Tjekker om det skal spawnes en pot
          if (currentTime >= spawnTime) {
-             SpawnCoin();
+             SpawnPot();
              SetRandomTime();
              currentTime = 0;
          }
@@ -40,10 +40,9 @@ public GameObject coin;
      
     
     }
-    void SpawnCoin (){
-     //Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),1, Random.Range(5,11));
-     Vector3 randomSpawnPoistion = new Vector3(Random.Range(1,13),1, Random.Range(1,13));
-       Instantiate(coin, randomSpawnPoistion, Quaternion.Euler(new Vector3(90,0,0)));
+    void SpawnPot (){
+     Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),1, Random.Range(5,11));
+       Instantiate(Pot, randomSpawnPoistion, Quaternion.identity);
     }
     
 

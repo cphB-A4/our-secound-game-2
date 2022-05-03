@@ -38,7 +38,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class healthbarscript : MonoBehaviour
+public class HealthBarScript : MonoBehaviour
 {
     private Image HealthBar;
     public float CurrentHealth;
