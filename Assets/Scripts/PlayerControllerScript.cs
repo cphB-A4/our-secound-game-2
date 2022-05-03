@@ -8,7 +8,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     public float Points = 0f;
     
-    public GameObject Enemy;
+    public GameObject mremireh_o_desbiens;
 
     public GameObject Pot;
 
@@ -20,17 +20,17 @@ public class PlayerControllerScript : MonoBehaviour
 
     public void Update(){
 
-    	float distanceForEnemy = Vector3.Distance(transform.position, Enemy.transform.position);
+    	//float distanceForEnemy = Vector3.Distance(transform.position, mremireh_o_desbiens.transform.position);
 
         float distanceForPot = Vector3.Distance(transform.position, Pot.transform.position);
 
         float distanceForCoin = Vector3.Distance(transform.position, Coin.transform.position);
 
-    	if(distanceForEnemy < 2.0f){
+    	/*if(distanceForEnemy < 2.0f){
             Debug.Log("damage");
             //gives damage to player ... To do
             Health = Health-1;
-        }
+        }*/
 
         if(distanceForCoin < 1.0f){
             //points til player

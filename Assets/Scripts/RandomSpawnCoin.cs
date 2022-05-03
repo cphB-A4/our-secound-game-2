@@ -21,7 +21,7 @@ public GameObject coin;
     void SetRandomTime ()
      {
          spawnTime = Random.Range (minTime, maxTime);
-         Debug.Log ("Next coin spawn in " + spawnTime + " seconds.");
+         //Debug.Log ("Next coin spawn in " + spawnTime + " seconds.");
      }
      
     void Update()
@@ -36,12 +36,14 @@ public GameObject coin;
              currentTime = 0;
          }
 
+
      
     
     }
     void SpawnCoin (){
-     Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),5, Random.Range(5,11));
+     Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),1, Random.Range(5,11));
        Instantiate(coin, randomSpawnPoistion, Quaternion.identity);
     }
+    
 
 }
