@@ -19,8 +19,8 @@ public class ZombieSpawner : MonoBehaviour
         
     }*/
 
-    private float minTime = 1;
-    private float maxTime = 5;
+    private float minTime = 5;
+    private float maxTime = 15;
     private float currentTime;
     private float spawnTime;
 
@@ -31,7 +31,7 @@ public class ZombieSpawner : MonoBehaviour
     void SetRandomTime ()
      {
          spawnTime = Random.Range (minTime, maxTime);
-         Debug.Log ("Next zombie spawn in " + spawnTime + " seconds.");
+         //Debug.Log ("Next zombie spawn in " + spawnTime + " seconds.");
      }
      
     void Update() {

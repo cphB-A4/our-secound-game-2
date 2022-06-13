@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
-
 namespace StarterAssets
 {
     [RequireComponent(typeof(CharacterController))]
@@ -89,6 +88,7 @@ namespace StarterAssets
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
 		private bool _rotateOnMove = true;
+        private PlayerControllerScript Player;
 
         private const float _threshold = 0.01f;
 
@@ -107,6 +107,7 @@ namespace StarterAssets
 
         private void Start()
         {
+            Player = GetComponent<PlayerControllerScript>();
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -119,10 +120,11 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
-        private void Update()
-        {
-            _hasAnimator = TryGetComponent(out _animator);
+        private void Update(){
 
+
+            _hasAnimator = TryGetComponent(out _animator);
+            CollisionCheck();
             JumpAndGravity();
             GroundedCheck();
             Move();
@@ -333,6 +335,28 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 		public void SetRotateOnMove(bool newRotateOnMove){
 			_rotateOnMove = newRotateOnMove;
 		}
-    }
+        private void CollisionCheck() {
+            RaycastHit hit; 
 
+            var offset = new Vector3(0, 0.3f, 0f);
+            if (Physics.Raycast(transform.position + offset, Vector3.down, out hit, 0.4f)){
+                if(hit.transform.tag == "jumppad"){
+                    var jumppadHeight = 10.4f;
+                    _verticalVelocity = Mathf.Sqrt(jumppadHeight * -2f * Gravity);
+                }
+                  if(hit.transform.tag == "Enemy"){  
+                      var enemyDamage = 2.0f;
+                      Player.UpdateHealth(enemyDamage);
+                }
+                 if(hit.transform.tag == "Coin"){  
+                      var newPoint = 1.0f;
+                      Player.UpdateScore(newPoint);
+                      Destroy(hit.collider.gameObject);
+            }
+            }
+
+        }
+        
+    }
+  
 }

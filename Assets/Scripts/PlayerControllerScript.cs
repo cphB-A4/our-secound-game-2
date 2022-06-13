@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    public float Health = 100f;
+    public float Health;
 
     public float Points = 0f;
     
@@ -17,10 +17,8 @@ public class PlayerControllerScript : MonoBehaviour
     public static bool gameOver;
 
     public GameObject gameOverPanel;
-    
-    //public GameObject mremireh_o_desbiens (Clone);
 
-
+   
     public void Update(){
 
     	float distanceForEnemy = Vector3.Distance(transform.position, mremireh_o_desbiens.transform.position);
@@ -29,7 +27,9 @@ public class PlayerControllerScript : MonoBehaviour
 
         float distanceForCoin = Vector3.Distance(transform.position, Coin.transform.position);
 
-        //float distanceForEnemyClone = Vector3.Distance(transform.position, mremireh_o_desbiens.transform.position);
+        //float distanceForEnemyClone = Vector3.Distance(transform.position, mremireh_o_desbiensClone.transform.position);
+
+        //float distanceForEnemyClone = Vector3.Distance(transform.position, mremireh_o_desbiens(Clone).transform.position);
 
     	if(distanceForEnemy < 2.0f){
             Debug.Log("damage");
@@ -61,5 +61,24 @@ public class PlayerControllerScript : MonoBehaviour
         }
 
     }
+
+    	public void UpdateHealth(float damage){
+            Debug.Log("Before" + Health);
+			Health = Health-damage;
+            Debug.Log("After" + Health);
+		}
+
+        	public void UpdateScore(float newPoint){
+            Debug.Log("Before" + Points);
+			Points = Points+newPoint;
+		}
+//Kan kun bruges hvis man har en rigidbody som man collider med...
+     // void OnCollisionEnter(Collision obj){
+       //   Debug.Log("damage");
+       //if(obj.gameObject.tag == "Enemy"){
+       //if(obj.gameObject.CompareTag("Enemy"))
+       //Health= Health-1f;  
+       //}
+   //}
 }
 
