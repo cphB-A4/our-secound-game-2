@@ -54,7 +54,7 @@ public class PlayerControllerScript : MonoBehaviour
         }
 
 //Når spiller rammer 0 health = game over
-        if(Health==0){
+        if(Health <=0 ){
             Debug.Log("game over");
             gameOver = true;
             gameOverPanel.SetActive(true);

@@ -1,6 +1,8 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using System.Collections;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -90,6 +92,11 @@ namespace StarterAssets
 		private bool _rotateOnMove = true;
         private PlayerControllerScript Player;
 
+        [SerializeField] private Image redSplatterImg = null;
+        [SerializeField] private float hurtTime = 0.2f;
+        [SerializeField] private AudioClip hurtaudio = null;
+        private AudioSource healthAudioSource;
+
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
@@ -112,6 +119,8 @@ namespace StarterAssets
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
             _playerInput = GetComponent<PlayerInput>();
+
+            healthAudioSource = GetComponent<AudioSource>();
 
             AssignAnimationIDs();
 
@@ -347,6 +356,10 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                   if(hit.transform.tag == "Enemy"){  
                       var enemyDamage = 2.0f;
                       Player.UpdateHealth(enemyDamage);
+                      Color splatterAlpha = redSplatterImg.color;
+                      splatterAlpha.a = 1;
+                      redSplatterImg.color = splatterAlpha;
+                      StartCoroutine(HurtFlash());
                 }
                  if(hit.transform.tag == "Coin"){  
                       var newPoint = 1.0f;
@@ -354,6 +367,16 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                       Destroy(hit.collider.gameObject);
             }
             }
+
+        }
+
+        IEnumerator HurtFlash(){
+            healthAudioSource.PlayOneShot(hurtaudio);
+            yield return new WaitForSeconds(2.0f);
+            Debug.Log("efter");
+            Color splatterAlpha = redSplatterImg.color;
+            splatterAlpha.a = 0;
+            redSplatterImg.color = splatterAlpha;
 
         }
         

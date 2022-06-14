@@ -3880,9 +3880,9 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 0
+    enabled: 1
     ratio: 0
-    light: {fileID: 0}
+    light: {fileID: 6765096431559905392, guid: f5916b367fa684e51ab4faa25e7c6cda, type: 3}
     randomDistribution: 1
     color: 1
     range: 1
