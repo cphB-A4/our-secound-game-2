@@ -41,7 +41,7 @@ public GameObject Pot;
     
     }
     void SpawnPot (){
-     Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),1, Random.Range(5,11));
+     Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),0.8f, Random.Range(5,11));
        Instantiate(Pot, randomSpawnPoistion, Quaternion.identity);
     }
     
