@@ -1245,9 +1245,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.0486783
-  m_Height: 3.5978615
+  m_Height: 2.5759814
   m_Direction: 1
-  m_Center: {x: 0.5486783, y: 1.2989308, z: 0}
+  m_Center: {x: 0.5486783, y: 1.8256546, z: 0}
 --- !u!114 &3637483799956596615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerArmature: {fileID: 3893294197879345259, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
-  MobDistanceRun: 20
+  MobDistanceRun: 100
 --- !u!195 &3637483799956596612
 NavMeshAgent:
   m_ObjectHideFlags: 0
