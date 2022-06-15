@@ -62,11 +62,17 @@ public class PlayerControllerScript : MonoBehaviour
 
     }
 
-    	public void UpdateHealth(float damage){
+    	public void DoDamage(float damage){
             Debug.Log("Before" + Health);
 			Health = Health-damage;
             Debug.Log("After" + Health);
 		}
+
+        public void HealPlayer(float healAmount){
+            Debug.Log("Before" + Health);
+            Health = Health+healAmount;
+            Debug.Log("After" + Health);
+        }
 
         	public void UpdateScore(float newPoint){
             Debug.Log("Before" + Points);

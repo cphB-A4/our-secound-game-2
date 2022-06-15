@@ -94,14 +94,23 @@ namespace StarterAssets
 
         [SerializeField] private Image redSplatterImg = null;
         [SerializeField] private float hurtTime = 0.2f;
-        [SerializeField] private AudioClip hurtaudio = null;
-        private AudioSource healthAudioSource;
+        //[SerializeField] private AudioClip hurtaudio = null;
+        //private AudioSource healthAudioSource;
 
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
 
         private bool IsCurrentDeviceMouse => _playerInput.currentControlScheme == "KeyboardMouse";
+
+        public AudioClip coinClip;
+        public AudioSource coinSFX;
+
+        public AudioClip hurtClip;
+        public  AudioSource healthSFX;
+
+        public AudioClip healClip;
+        public  AudioSource healSFX;
 
         private void Awake()
         {
@@ -120,7 +129,10 @@ namespace StarterAssets
             _input = GetComponent<StarterAssetsInputs>();
             _playerInput = GetComponent<PlayerInput>();
 
-            healthAudioSource = GetComponent<AudioSource>();
+            coinSFX = AddAudio(false, false, 0.2f);
+            healthSFX = AddAudio(false, false, 0.2f);
+            healSFX = AddAudio(false, false, 0.2f);
+
 
             AssignAnimationIDs();
 
@@ -138,6 +150,13 @@ namespace StarterAssets
             GroundedCheck();
             Move();
         }
+         public AudioSource AddAudio(bool loop, bool playAwake, float vol) { 
+     AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+     newAudio.loop = loop;
+     newAudio.playOnAwake = playAwake;
+     newAudio.volume = vol; 
+     return newAudio;
+ }
 
         private void LateUpdate()
         {
@@ -355,15 +374,24 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                 }
                   if(hit.transform.tag == "Enemy"){  
                       var enemyDamage = 2.0f;
-                      Player.UpdateHealth(enemyDamage);
+                      Player.DoDamage(enemyDamage);
                       Color splatterAlpha = redSplatterImg.color;
                       splatterAlpha.a = 1;
                       redSplatterImg.color = splatterAlpha;
                       StartCoroutine(HurtFlash());
                 }
-                 if(hit.transform.tag == "Coin"){  
+                 if(hit.transform.tag == "Coin"){
+                      coinSFX.clip = coinClip;
+                      coinSFX.Play();
                       var newPoint = 1.0f;
                       Player.UpdateScore(newPoint);
+                      Destroy(hit.collider.gameObject);
+            }
+            if(hit.transform.tag == "Pot"){
+                      healSFX.clip = healClip;
+                      healSFX.Play();
+                      var healingAmount = 10.0f;
+                      Player.HealPlayer(healingAmount);
                       Destroy(hit.collider.gameObject);
             }
             }
@@ -371,7 +399,9 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
         }
 
         IEnumerator HurtFlash(){
-            healthAudioSource.PlayOneShot(hurtaudio);
+            //healthSFX.clip = hurtClip;
+            healthSFX.PlayOneShot(hurtClip);
+            //healthSFX.Play();
             yield return new WaitForSeconds(2.0f);
             Debug.Log("efter");
             Color splatterAlpha = redSplatterImg.color;

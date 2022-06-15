@@ -20,14 +20,27 @@ public class ThirdPersonShooterController : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private Animator animator;
 
+    public AudioClip shotClip;
+    public AudioSource shotSFX;
+
     private void Awake()
     {
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         animator = GetComponent<Animator>();
     }
+     public AudioSource AddAudio(bool loop, bool playAwake, float vol) 
+ { 
+     AudioSource newAudio = gameObject.AddComponent<AudioSource>();
+     //newAudio.clip = clip; 
+     newAudio.loop = loop;
+     newAudio.playOnAwake = playAwake;
+     newAudio.volume = vol; 
+     return newAudio; 
+ }
     void Start()
     {
+        shotSFX = AddAudio(false, false, 0.2f);
 
     }
 
@@ -67,6 +80,8 @@ public class ThirdPersonShooterController : MonoBehaviour
             animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
         }
         if(starterAssetsInputs.shoot){
+            shotSFX.clip = shotClip;
+            shotSFX.Play();
             Debug.Log("hellooo");
             Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
             Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));

@@ -210,17 +210,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65470900}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9, y: 9, z: 1}
+  m_LocalScale: {x: 2.9729807, y: 2.9920397, z: 1.1803279}
   m_Children: []
-  m_Father: {fileID: 1250740009}
-  m_RootOrder: 0
+  m_Father: {fileID: 1928873457}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -788, y: -260}
+  m_SizeDelta: {x: -1001.1476, y: -370}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &65470902
 MonoBehaviour:
@@ -2397,7 +2397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1250740006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2469,8 +2469,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 65470901}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2997,6 +2996,8 @@ MonoBehaviour:
   debugTransform: {fileID: 1751681711}
   pfBulletProjectile: {fileID: 297363497606927217, guid: 2f9c4f71025654dc495f31b8eb85f36e, type: 3}
   spawnBulletPosition: {fileID: 721841274}
+  shotClip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
+  shotSFX: {fileID: 0}
 --- !u!114 &1475943009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3984,6 +3985,18 @@ PrefabInstance:
       value: PlayerArmature
       objectReference: {fileID: 0}
     - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: coinClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 499812eb663434fa2b5274caf01a1c6f, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: healClip
+      value: 
+      objectReference: {fileID: 8300000, guid: ba1ae6ede1345426b94fa5b2a00ecda1, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
+      propertyPath: hurtClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cbf80bca9c3cf4165842bfade613f5db, type: 3}
+    - target: {fileID: 4416926081852918490, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
       propertyPath: hurtaudio
       value: 
       objectReference: {fileID: 8300000, guid: cbf80bca9c3cf4165842bfade613f5db, type: 3}
@@ -4405,6 +4418,7 @@ RectTransform:
   - {fileID: 1330340136}
   - {fileID: 2123413625}
   - {fileID: 678599224}
+  - {fileID: 65470901}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
