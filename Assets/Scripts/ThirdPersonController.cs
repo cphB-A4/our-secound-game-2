@@ -400,7 +400,7 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
         IEnumerator HurtFlash(){
             //healthSFX.clip = hurtClip;
-            healthSFX.PlayOneShot(hurtClip);
+            //healthSFX.PlayOneShot(hurtClip);
             //healthSFX.Play();
             yield return new WaitForSeconds(2.0f);
             Debug.Log("efter");
