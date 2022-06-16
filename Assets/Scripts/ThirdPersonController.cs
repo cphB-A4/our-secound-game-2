@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -398,6 +399,9 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
         }
+
+
+        
 
         IEnumerator HurtFlash(){
             //healthSFX.clip = hurtClip;

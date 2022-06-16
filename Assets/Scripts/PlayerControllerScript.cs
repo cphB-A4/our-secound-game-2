@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerScript : MonoBehaviour
 {
@@ -61,6 +62,8 @@ int maxPlatform = 0;
 //Når spiller rammer 0 health = game over
         if(Health <=0 ){
             Debug.Log("game over");
+             Cursor.visible = true;
+             Time.timeScale = 0;
            GameOverScript.Setup(maxPlatform);
         }
 
@@ -70,6 +73,11 @@ int maxPlatform = 0;
             Debug.Log("Before" + Health);
 			Health = Health-damage;
             Debug.Log("After" + Health);
+            if(Health < -1000.0f){
+                 Time.timeScale = 0;
+                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            }
 		}
 
         public void HealPlayer(float healAmount){
