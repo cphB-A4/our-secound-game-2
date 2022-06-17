@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool aim;
+		public bool parachute;
         public bool shoot;
 
 		[Header("Movement Settings")]
@@ -51,6 +52,10 @@ namespace StarterAssets
 		{
 			AimInput(value.isPressed);
 		}
+		public void OnParachute(InputValue value)
+		{
+			ParachuteInput(value.isPressed);
+		}
 		public void OnShoot(InputValue value)
 		{
 			ShootInput(value.isPressed);
@@ -81,8 +86,12 @@ namespace StarterAssets
 		}
         public void AimInput(bool newAimState)
         {
-            Debug.Log("AimInput");
+
             aim = newAimState;
+        }
+        public void ParachuteInput(bool newParachuteState)
+        { 
+            parachute = newParachuteState;
         }
         public void ShootInput(bool newShootState)
         {

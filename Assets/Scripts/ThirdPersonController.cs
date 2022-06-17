@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -62,6 +63,8 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        public bool canUseParachute = false;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -113,6 +116,8 @@ namespace StarterAssets
         public AudioClip healClip;
         public  AudioSource healSFX;
 
+        public GameObject parachute;
+
         private void Awake()
         {
             // get a reference to our main camera
@@ -129,6 +134,7 @@ namespace StarterAssets
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
             _playerInput = GetComponent<PlayerInput>();
+
 
             coinSFX = AddAudio(false, false, 0.2f);
             healthSFX = AddAudio(false, false, 0.2f);
@@ -178,7 +184,7 @@ namespace StarterAssets
             // set sphere position, with offset
             Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
             Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-
+            //Debug.Log(Grounded);
             // update animator if using character
             if (_hasAnimator)
             {
@@ -294,6 +300,7 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    //-15.0f
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
                     // update animator if using character
@@ -311,6 +318,7 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
             else
             {
+               
                 // reset the jump timeout timer
                 _jumpTimeoutDelta = JumpTimeout;
 
@@ -337,6 +345,24 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+
+            if (_input.parachute && canUseParachute)
+            {
+                //Debug.Log("parachute input??? ");
+                //-15.0f
+                //_verticalVelocity = Mathf.Sqrt(-0.3f * -10.0f);
+                Gravity = -1.0f;
+                //parachute
+                //Physics.Raycast(transform.position + offset, Vector3.down, out hit, 0.4f);
+                parachute.SetActive(true);
+                //parachute.transform.SetParent(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+                //Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+            } else {
+                Gravity = -15.0f;
+                parachute.SetActive(false);
+            }
+        
+            
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
@@ -371,6 +397,7 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             if (Physics.Raycast(transform.position + offset, Vector3.down, out hit, 0.4f)){
                 if(hit.transform.tag == "jumppad"){
                     var jumppadHeight = 10.4f;
+                    Grounded = false; //for at deploye parachute
                     _verticalVelocity = Mathf.Sqrt(jumppadHeight * -2f * Gravity);
                 }
                   if(hit.transform.tag == "Enemy"){  
@@ -396,6 +423,11 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                       Player.HealPlayer(healingAmount);
                       Destroy(hit.collider.gameObject);
             }
+            canUseParachute = false;
+            } else {
+                //intet er under person og han kan derfor bruge parachute
+                Debug.Log("jeg kan bruge parachute");
+                canUseParachute = true;
             }
 
         }
