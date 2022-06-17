@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewSpawner : MonoBehaviour
+public class ZombieSpawnerGiz : MonoBehaviour
 {
     public GameObject ZombiePrefab;
     public Vector3 center;
