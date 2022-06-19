@@ -17,9 +17,9 @@ public class PlayerControllerScript : MonoBehaviour
 
     public static bool gameOver;
 
-    public GameObject gameOverPanel;
+    [SerializeField] private GameObject gameOverUI;
 
-    public GameOverScript GameOverScript;
+    
 
 int maxPlatform = 0;
 
@@ -37,7 +37,7 @@ int maxPlatform = 0;
 
         //float distanceForEnemyClone = Vector3.Distance(transform.position, mremireh_o_desbiens(Clone).transform.position);
 
-    	if(distanceForEnemy < 2.0f){
+    	/*if(distanceForEnemy < 2.0f){
             Debug.Log("damage");
             //gives damage to player ... To do
             Health = Health-1;
@@ -55,16 +55,15 @@ int maxPlatform = 0;
             Health += 10;
             if(Health>100){
                 Health = 100;
-            }
+            }*/
             
-        }
+        
 
 //Når spiller rammer 0 health = game over
         if(Health <=0 ){
             Debug.Log("game over");
-             Cursor.visible = true;
-             Time.timeScale = 0;
-           GameOverScript.Setup(maxPlatform);
+             AudioListener.pause = false;
+            gameOverUI.SetActive(true);
         }
 
     }
@@ -83,6 +82,9 @@ int maxPlatform = 0;
         public void HealPlayer(float healAmount){
             Debug.Log("Before" + Health);
             Health = Health+healAmount;
+            if(Health>100){
+                Health=100;
+            }
             Debug.Log("After" + Health);
         }
 

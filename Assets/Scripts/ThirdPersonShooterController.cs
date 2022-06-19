@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using StarterAssets;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ThirdPersonShooterController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class ThirdPersonShooterController : MonoBehaviour
 
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private bool isPaused;
+    [SerializeField] private GameObject gameOverUI;
     // Start is called before the first frame update
 
     private StarterAssetsInputs starterAssetsInputs;
@@ -95,58 +97,29 @@ public class ThirdPersonShooterController : MonoBehaviour
             starterAssetsInputs.shoot = false; //if you click it shoots (like a pistol)
         }
 
-        if (starterAssetsInputs.Escape)
-        {
+        if (starterAssetsInputs.Escape){
             Debug.Log("t trykket");
-            //  menu = starterAssets.Escape;
-            //menu.Enable();
-            // menu.performed += Pause;
-            //Pause2();
-            isPaused = true;
-            Pause2();
+            if(isPaused){
+                DeactivateMenu();
+            } else{
+                ActivateMenu();
+            }
            
             starterAssetsInputs.Escape = false;
         }
-        Debug.Log("check if paused");
-        if (isPaused)
-        {
-            //if (starterAssetsInputs.Escape){
-             //   Debug.Log("resume");
-            //}
+        if(gameOverUI.active && starterAssetsInputs.Restart){
 
-            Debug.Log("Is paused");
-            if (starterAssetsInputs.resume)
-            {
-                DeactivateMenu();
-                Debug.Log("deactive menu");
-                starterAssetsInputs.resume = false;
-            }
-        }
-        
-
-    }
-    void Pause2()
-    {
-        //isPaused = !isPaused;
-        if (isPaused)
-        {
-            ActivateMenu();
-        }
-        else
-        {
-            DeactivateMenu();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
-    void ActivateMenu()
-    {
+    void ActivateMenu(){
         Time.timeScale = 0;
         AudioListener.pause = true;
         pauseUI.SetActive(true);
         //Cursor.lockState = CursorLockMode.None;
         isPaused = true;
     }
-    public void DeactivateMenu()
-    {
+    public void DeactivateMenu(){
         Time.timeScale = 1;
         AudioListener.pause = false;
         pauseUI.SetActive(false);

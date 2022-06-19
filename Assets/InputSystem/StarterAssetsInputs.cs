@@ -16,7 +16,7 @@ namespace StarterAssets
 		public bool parachute;
         public bool shoot;
 		public bool Escape;
-		public bool resume;
+		public bool Restart;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -62,9 +62,9 @@ namespace StarterAssets
 		{
 			EscapeInput(value.isPressed);
 		}
-		public void OnResume(InputValue value)
+		public void OnRestart(InputValue value)
 		{
-			ResumeInput(value.isPressed);
+			RestartInput(value.isPressed);
 		}
 		public void OnShoot(InputValue value)
 		{
@@ -113,10 +113,10 @@ namespace StarterAssets
             
             Escape = newEscapeState;
         }
-        public void ResumeInput(bool newResumeState)
+        public void RestartInput(bool newRestartState)
         {
 
-            resume = newResumeState;
+            Restart = newRestartState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

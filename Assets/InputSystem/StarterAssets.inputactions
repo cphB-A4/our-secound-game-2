@@ -78,9 +78,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Resume",
+                    "name": "Restart",
                     "type": "Button",
-                    "id": "b2f2c858-330d-4aae-91eb-0289e6122b68",
+                    "id": "c08ecbfa-edde-498e-873f-47c24c101eb5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -322,7 +322,7 @@
                 {
                     "name": "",
                     "id": "f2854426-8b8b-4738-88fa-5891c0a9394a",
-                    "path": "<Keyboard>/t",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -343,12 +343,12 @@
                 },
                 {
                     "name": "",
-                    "id": "dbf1debc-4454-4e44-a1bd-24ee51ff9e6a",
+                    "id": "409c571e-5177-46c0-b5dd-441fab4463a6",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Resume",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
