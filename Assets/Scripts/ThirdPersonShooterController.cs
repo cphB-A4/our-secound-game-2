@@ -16,6 +16,10 @@ public class ThirdPersonShooterController : MonoBehaviour
     [SerializeField] private Transform pfBulletProjectile;
     [SerializeField] private Transform spawnBulletPosition;
 
+    [SerializeField] private GameObject pauseUI;
+    [SerializeField] private bool isPaused;
+    // Start is called before the first frame update
+
     private StarterAssetsInputs starterAssetsInputs;
     private ThirdPersonController thirdPersonController;
     private Animator animator;
@@ -41,6 +45,8 @@ public class ThirdPersonShooterController : MonoBehaviour
     void Start()
     {
         shotSFX = AddAudio(false, false, 0.2f);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
     }
 
@@ -48,6 +54,7 @@ public class ThirdPersonShooterController : MonoBehaviour
     void Update()
     {
         Vector3 mouseWorldPosition = Vector3.zero;
+        Debug.Log("Updating");
 
         //Finds center of the screen 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -87,5 +94,67 @@ public class ThirdPersonShooterController : MonoBehaviour
             Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
             starterAssetsInputs.shoot = false; //if you click it shoots (like a pistol)
         }
+
+        if (starterAssetsInputs.Escape)
+        {
+            Debug.Log("t trykket");
+            //  menu = starterAssets.Escape;
+            //menu.Enable();
+            // menu.performed += Pause;
+            //Pause2();
+            isPaused = true;
+            Pause2();
+           
+            starterAssetsInputs.Escape = false;
+        }
+        Debug.Log("check if paused");
+        if (isPaused)
+        {
+            //if (starterAssetsInputs.Escape){
+             //   Debug.Log("resume");
+            //}
+
+            Debug.Log("Is paused");
+            if (starterAssetsInputs.resume)
+            {
+                DeactivateMenu();
+                Debug.Log("deactive menu");
+                starterAssetsInputs.resume = false;
+            }
+        }
+        
+
     }
+    void Pause2()
+    {
+        //isPaused = !isPaused;
+        if (isPaused)
+        {
+            ActivateMenu();
+        }
+        else
+        {
+            DeactivateMenu();
+        }
+    }
+    void ActivateMenu()
+    {
+        Time.timeScale = 0;
+        AudioListener.pause = true;
+        pauseUI.SetActive(true);
+        //Cursor.lockState = CursorLockMode.None;
+        isPaused = true;
+    }
+    public void DeactivateMenu()
+    {
+        Time.timeScale = 1;
+        AudioListener.pause = false;
+        pauseUI.SetActive(false);
+        isPaused = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+
+    }
+
+    //Game UI
+    
 }

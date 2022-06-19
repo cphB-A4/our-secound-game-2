@@ -15,6 +15,8 @@ namespace StarterAssets
 		public bool aim;
 		public bool parachute;
         public bool shoot;
+		public bool Escape;
+		public bool resume;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -55,6 +57,14 @@ namespace StarterAssets
 		public void OnParachute(InputValue value)
 		{
 			ParachuteInput(value.isPressed);
+		}
+		public void OnEscape(InputValue value)
+		{
+			EscapeInput(value.isPressed);
+		}
+		public void OnResume(InputValue value)
+		{
+			ResumeInput(value.isPressed);
 		}
 		public void OnShoot(InputValue value)
 		{
@@ -97,6 +107,16 @@ namespace StarterAssets
         {
             Debug.Log("hellooo");
             shoot = newShootState;
+        }
+        public void EscapeInput(bool newEscapeState)
+        {
+            
+            Escape = newEscapeState;
+        }
+        public void ResumeInput(bool newResumeState)
+        {
+
+            resume = newResumeState;
         }
 
 #if !UNITY_IOS || !UNITY_ANDROID

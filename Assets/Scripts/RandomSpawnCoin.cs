@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PotSpawnerGiz : MonoBehaviour
+public class RandomSpawnCoin : MonoBehaviour
 {
     // Start is called before the first frame update
 
-public GameObject Pot;
-public Vector3 center;
-    public Vector3 size;
+public GameObject coin;
     // Update is called once per frame
 
     private float minTime = 2;
@@ -31,9 +29,9 @@ public Vector3 center;
   
         //Tæller op
          currentTime += Time.deltaTime;
-         //Tjekker om det skal spawnes en pot
+         //Tjekker om det skal spawnes en coin
          if (currentTime >= spawnTime) {
-             SpawnPot();
+             SpawnCoin();
              SetRandomTime();
              currentTime = 0;
          }
@@ -42,14 +40,10 @@ public Vector3 center;
      
     
     }
-    void SpawnPot (){
-    Vector3 randomSpawnPoistion = center + new Vector3(Random.Range(-size.x / 2 , size.x /2), -1, Random.Range(-size.y /2 , size.y/2));
-     //Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),0.8f, Random.Range(5,11));
-       Instantiate(Pot, randomSpawnPoistion, Quaternion.identity);
-    }
-      void OnDrawGizmosSelected(){
-        Gizmos.color = new Color(1,0,0,0.5f);
-        Gizmos.DrawCube(center,size);
+    void SpawnCoin (){
+     //Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),1, Random.Range(5,11));
+     Vector3 randomSpawnPoistion = new Vector3(Random.Range(1,13),0.5f, Random.Range(1,13));
+       Instantiate(coin, randomSpawnPoistion, Quaternion.Euler(new Vector3(90,0,0)));
     }
     
 
