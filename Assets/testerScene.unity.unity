@@ -3044,7 +3044,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: Resume
 --- !u!222 &563545689
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3066,7 +3066,7 @@ GameObject:
   - component: {fileID: 575186969}
   - component: {fileID: 575186968}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ExitGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5498,6 +5498,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e1f398cab58394cb2187fef2ffc46d, type: 3}
+--- !u!1 &1061777275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1061777277}
+  - component: {fileID: 1061777276}
+  m_Layer: 0
+  m_Name: MenuController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1061777276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061777275}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af63a2e07fd842ccb0ddf2e0c9850e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseUI: {fileID: 1407173354}
+  isPaused: 0
+--- !u!4 &1061777277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061777275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 398.16934, y: 96.13306, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1063306014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7679,7 +7724,7 @@ GameObject:
   - component: {fileID: 1407173359}
   - component: {fileID: 1407173361}
   m_Layer: 5
-  m_Name: Background
+  m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7721,7 +7766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.023529414, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.023529414, g: 0, b: 0, a: 0.15294118}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8175,6 +8220,8 @@ MonoBehaviour:
   debugTransform: {fileID: 1751681711}
   pfBulletProjectile: {fileID: 297363497606927217, guid: 2f9c4f71025654dc495f31b8eb85f36e, type: 3}
   spawnBulletPosition: {fileID: 721841274}
+  pauseUI: {fileID: 1407173354}
+  isPaused: 0
   shotClip: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
   shotSFX: {fileID: 0}
 --- !u!114 &1475943009
@@ -9263,7 +9310,7 @@ GameObject:
   - component: {fileID: 1721297040}
   - component: {fileID: 1721297039}
   m_Layer: 5
-  m_Name: Button
+  m_Name: ResumeGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11260,7 +11307,7 @@ GameObject:
   - component: {fileID: 2033107360}
   - component: {fileID: 2033107359}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: PauseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11275,14 +11322,14 @@ RectTransform:
   m_GameObject: {fileID: 2033107357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 1407173355}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 150, y: 47}
+  m_AnchoredPosition: {x: 150, y: 0}
   m_SizeDelta: {x: 623.186, y: 375}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033107359
@@ -11318,7 +11365,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: GAME OVER
+  m_Text: PAUSED
 --- !u!222 &2033107360
 CanvasRenderer:
   m_ObjectHideFlags: 0
