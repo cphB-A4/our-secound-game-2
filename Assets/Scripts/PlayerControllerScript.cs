@@ -19,6 +19,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     [SerializeField] private GameObject gameOverUI;
 
+
     
 
 //int maxPlatform = 0;
@@ -64,6 +65,7 @@ public class PlayerControllerScript : MonoBehaviour
         
              AudioListener.pause = false;
             gameOverUI.SetActive(true);
+            
         }
 
     }
