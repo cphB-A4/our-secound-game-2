@@ -56,7 +56,6 @@ public class ThirdPersonShooterController : MonoBehaviour
     void Update()
     {
         Vector3 mouseWorldPosition = Vector3.zero;
-        Debug.Log("Updating");
 
         //Finds center of the screen 
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
@@ -91,14 +90,12 @@ public class ThirdPersonShooterController : MonoBehaviour
         if(starterAssetsInputs.shoot){
             shotSFX.clip = shotClip;
             shotSFX.Play();
-            Debug.Log("hellooo");
             Vector3 aimDir = (mouseWorldPosition - spawnBulletPosition.position).normalized;
             Instantiate(pfBulletProjectile, spawnBulletPosition.position, Quaternion.LookRotation(aimDir, Vector3.up));
             starterAssetsInputs.shoot = false; //if you click it shoots (like a pistol)
         }
 
         if (starterAssetsInputs.Escape){
-            Debug.Log("t trykket");
             if(isPaused){
                 DeactivateMenu();
             } else{
@@ -107,7 +104,7 @@ public class ThirdPersonShooterController : MonoBehaviour
            
             starterAssetsInputs.Escape = false;
         }
-        if(gameOverUI.active && starterAssetsInputs.Restart){
+        if(gameOverUI.activeInHierarchy && starterAssetsInputs.Restart){
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

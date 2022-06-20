@@ -21,7 +21,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     
 
-int maxPlatform = 0;
+//int maxPlatform = 0;
 
 
    
@@ -61,7 +61,7 @@ int maxPlatform = 0;
 
 //Når spiller rammer 0 health = game over
         if(Health <=0 ){
-            Debug.Log("game over");
+        
              AudioListener.pause = false;
             gameOverUI.SetActive(true);
         }
@@ -69,9 +69,9 @@ int maxPlatform = 0;
     }
 
     	public void DoDamage(float damage){
-            Debug.Log("Before" + Health);
+           
 			Health = Health-damage;
-            Debug.Log("After" + Health);
+    
             if(Health < -1000.0f){
                  Time.timeScale = 0;
                  SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -80,16 +80,15 @@ int maxPlatform = 0;
 		}
 
         public void HealPlayer(float healAmount){
-            Debug.Log("Before" + Health);
             Health = Health+healAmount;
             if(Health>100){
                 Health=100;
             }
-            Debug.Log("After" + Health);
+            //Debug.Log("After" + Health);
         }
 
         	public void UpdateScore(float newPoint){
-            Debug.Log("Before" + Points);
+           
 			Points = Points+newPoint;
 		}
 //Kan kun bruges hvis man har en rigidbody som man collider med...

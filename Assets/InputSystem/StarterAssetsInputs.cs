@@ -105,7 +105,6 @@ namespace StarterAssets
         }
         public void ShootInput(bool newShootState)
         {
-            Debug.Log("hellooo");
             shoot = newShootState;
         }
         public void EscapeInput(bool newEscapeState)

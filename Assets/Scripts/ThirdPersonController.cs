@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -97,7 +97,7 @@ namespace StarterAssets
         private PlayerControllerScript Player;
 
         [SerializeField] private Image redSplatterImg = null;
-        [SerializeField] private float hurtTime = 0.2f;
+        [SerializeField] private float hurtTime = 2.0f;
         //[SerializeField] private AudioClip hurtaudio = null;
         //private AudioSource healthAudioSource;
 
@@ -426,7 +426,6 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             canUseParachute = false;
             } else {
                 //intet er under person og han kan derfor bruge parachute
-                Debug.Log("jeg kan bruge parachute");
                 canUseParachute = true;
             }
 
@@ -439,8 +438,7 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             //healthSFX.clip = hurtClip;
             //healthSFX.PlayOneShot(hurtClip);
             //healthSFX.Play();
-            yield return new WaitForSeconds(2.0f);
-            Debug.Log("efter");
+            yield return new WaitForSeconds(hurtTime);
             Color splatterAlpha = redSplatterImg.color;
             splatterAlpha.a = 0;
             redSplatterImg.color = splatterAlpha;
