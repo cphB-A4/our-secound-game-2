@@ -22,10 +22,15 @@ public class BulletProjectile : MonoBehaviour {
         if (other.GetComponent<BulletTarget>() != null) {
             // Hit target
             Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
+            Debug.Log("Rammer target gameObject: " + gameObject.name);//projectile
+            Debug.Log("Rammer target other: " + other.name); //zombie 
+            Destroy(other.gameObject);
             Destroy(gameObject);
         } else {
             // Hit something else
             Instantiate(vfxHitRed, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+            Debug.Log("Rammer ikke target: "+gameObject.name);
         }
     
     }

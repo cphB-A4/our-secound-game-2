@@ -69,14 +69,7 @@ public class PlayerControllerScript : MonoBehaviour
     }
 
     	public void DoDamage(float damage){
-           
 			Health = Health-damage;
-    
-            if(Health < -1000.0f){
-                 Time.timeScale = 0;
-                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
-            }
 		}
 
         public void HealPlayer(float healAmount){
