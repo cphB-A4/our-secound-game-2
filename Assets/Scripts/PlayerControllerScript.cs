@@ -9,11 +9,11 @@ public class PlayerControllerScript : MonoBehaviour
 
     public float Points = 0f;
     
-    public GameObject mremireh_o_desbiens;
+    //public GameObject mremireh_o_desbiens;
 
-    public GameObject Pot;
+    //public GameObject Pot;
 
-    public GameObject Coin;
+    //public GameObject Coin;
 
     public static bool gameOver;
 
@@ -27,11 +27,11 @@ public class PlayerControllerScript : MonoBehaviour
    
     public void Update(){
 
-    	float distanceForEnemy = Vector3.Distance(transform.position, mremireh_o_desbiens.transform.position);
+    	//float distanceForEnemy = Vector3.Distance(transform.position, mremireh_o_desbiens.transform.position);
 
-        float distanceForPot = Vector3.Distance(transform.position, Pot.transform.position);
+        //float distanceForPot = Vector3.Distance(transform.position, Pot.transform.position);
 
-        float distanceForCoin = Vector3.Distance(transform.position, Coin.transform.position);
+        //float distanceForCoin = Vector3.Distance(transform.position, Coin.transform.position);
 
         //float distanceForEnemyClone = Vector3.Distance(transform.position, mremireh_o_desbiensClone.transform.position);
 

@@ -8385,9 +8385,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Points: 0
-  mremireh_o_desbiens: {fileID: 4520375906051435181, guid: bdfdf0e624787443ea0dd6f42073c2a5, type: 3}
-  Pot: {fileID: 2656685642400106646, guid: 0c279b0e1c6764e428731df79555f7ae, type: 3}
-  Coin: {fileID: 8418707761697313265, guid: d4845e888befa47ed82658fb9f726aab, type: 3}
   gameOverUI: {fileID: 763989161}
 --- !u!82 &1475943010
 AudioSource:
@@ -8918,7 +8915,7 @@ GameObject:
   - component: {fileID: 1567696909}
   m_Layer: 0
   m_Name: PotSpawner
-  m_TagString: Untagged
+  m_TagString: Pot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11776,7 +11773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2106235857
 MonoBehaviour:
   m_ObjectHideFlags: 0

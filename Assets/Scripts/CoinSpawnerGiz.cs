@@ -11,8 +11,8 @@ public GameObject coin;
     public Vector3 size;
     // Update is called once per frame
 
-    private float minTime = 1;
-    private float maxTime = 2;
+    private float minTime = 2;
+    private float maxTime = 10;
     private float currentTime;
     private float spawnTime;
 

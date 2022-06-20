@@ -8,8 +8,8 @@ public class ZombieSpawnerGiz : MonoBehaviour
     public Vector3 center;
     public Vector3 size;
 
-    private float minTime = 5;
-    private float maxTime = 15;
+    private float minTime = 1;
+    private float maxTime = 8;
     private float currentTime;
     private float spawnTime;
     // Start is called before the first frame update
