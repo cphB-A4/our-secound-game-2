@@ -44,7 +44,7 @@ public GameObject coin;
     }
     void SpawnCoin (){
      //Vector3 randomSpawnPoistion = new Vector3(Random.Range(5,11),1, Random.Range(5,11));
-      Vector3 randomSpawnPoistion = center + new Vector3(Random.Range(-size.x / 2 , size.x /2), -0.5f, Random.Range(-size.y /2 , size.y/2));
+      Vector3 randomSpawnPoistion = center + new Vector3(Random.Range(-size.x / 2 , size.x /2), -0.5f, Random.Range(-size.z /2 , size.z/2));
        Instantiate(coin, randomSpawnPoistion, Quaternion.Euler(new Vector3(90,0,0)));
     }
     void OnDrawGizmosSelected(){
