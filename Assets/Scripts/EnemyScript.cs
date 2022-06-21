@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using StarterAssets;
 
 public class EnemyScript : MonoBehaviour
 {
     private NavMeshAgent Mob;
+    public ThirdPersonController thirdPersonController;
 
     //public GameObject PlayerArmature;
     //public GameObject Player;
@@ -18,6 +20,12 @@ public class EnemyScript : MonoBehaviour
     {
         PlayerArmature = GameObject.FindWithTag("Player").transform;
         Mob = GetComponent<NavMeshAgent>();
+        //thirdPersonController = GetComponent<ThirdPersonController>();
+    }
+    public void Awake(){
+        //thirdPersonController = GetComponent<ThirdPersonController>();
+         thirdPersonController = FindObjectOfType<ThirdPersonController>();
+       
     }
 
     // Update is called once per frame
@@ -41,4 +49,14 @@ public class EnemyScript : MonoBehaviour
         }
 
     }
+      public void OnTriggerEnter(Collider other){
+        
+    //ThirdPersonController.Instance.CollideWithEnemy();
+    if(other.tag == "Player"){
+    thirdPersonController.CollideWithEnemy();
+    }
+    
+    
+    }
+
 }

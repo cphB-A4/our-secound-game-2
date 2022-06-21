@@ -95,6 +95,7 @@ namespace StarterAssets
         private GameObject _mainCamera;
 		private bool _rotateOnMove = true;
         private PlayerControllerScript Player;
+        public static ThirdPersonController Instance{ get; private set;}
 
         [SerializeField] private Image redSplatterImg = null;
         [SerializeField] private float hurtTime = 2.0f;
@@ -444,7 +445,19 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             redSplatterImg.color = splatterAlpha;
 
         }
+
+        public void CollideWithEnemy(){
+              var enemyDamage = 10.0f;
+                      Player.DoDamage(enemyDamage);
+                      Color splatterAlpha = redSplatterImg.color;
+                      splatterAlpha.a = 1;
+                      redSplatterImg.color = splatterAlpha;
+                      StartCoroutine(HurtFlash());
+                      CameraShake.Instance.ShakeCamera(3f, 2.0f);
+        }
         
     }
+
+
   
 }
