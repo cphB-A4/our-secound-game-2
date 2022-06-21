@@ -401,15 +401,15 @@ transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
                     Grounded = false; //for at deploye parachute
                     _verticalVelocity = Mathf.Sqrt(jumppadHeight * -2f * Gravity);
                 }
-                  if(hit.transform.tag == "Enemy"){  
-                      var enemyDamage = 2.0f;
-                      Player.DoDamage(enemyDamage);
-                      Color splatterAlpha = redSplatterImg.color;
-                      splatterAlpha.a = 1;
-                      redSplatterImg.color = splatterAlpha;
-                      StartCoroutine(HurtFlash());
-                      CameraShake.Instance.ShakeCamera(3f, .1f);
-                }
+                //  if(hit.transform.tag == "Enemy"){  
+                 //     var enemyDamage = 2.0f;
+                 //     Player.DoDamage(enemyDamage);
+                 //     Color splatterAlpha = redSplatterImg.color;
+                 //     splatterAlpha.a = 1;
+                 //     redSplatterImg.color = splatterAlpha;
+                 //     StartCoroutine(HurtFlash());
+                 //     CameraShake.Instance.ShakeCamera(3f, .1f);
+              //  }
                  if(hit.transform.tag == "Coin"){
                       coinSFX.clip = coinClip;
                       coinSFX.Play();
